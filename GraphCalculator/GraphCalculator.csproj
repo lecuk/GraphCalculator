@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{907A20B1-56FA-42BD-8665-04BD592F54A4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GraphCalculator</RootNamespace>
+    <AssemblyName>GraphCalculator</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.3.0.1\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.3.0.1\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\CartesianFieldController.cs" />
+    <Compile Include="Controller\Parser.cs" />
+    <Compile Include="Controller\Token.cs" />
+    <Compile Include="Model\Argument.cs" />
+    <Compile Include="Model\CartesianField.cs" />
+    <Compile Include="Model\Curve.cs" />
+    <Compile Include="Model\PostfixFunction.cs" />
+    <Compile Include="Math\MathPlus.cs" />
+    <Compile Include="Model\Options.cs" />
+    <Compile Include="Math\RectangleD.cs" />
+    <Compile Include="Model\Variable.cs" />
+    <Compile Include="Math\Vector2.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Camera.cs" />
+    <Compile Include="View\CartesianFieldRenderer.cs" />
+    <Compile Include="View\Forms\GraphEquationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\GraphEquationControl.Designer.cs">
+      <DependentUpon>GraphEquationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\GraphListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\GraphListControl.Designer.cs">
+      <DependentUpon>GraphListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\GraphOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\GraphOptionsForm.Designer.cs">
+      <DependentUpon>GraphOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\VariableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Forms\VariableControl.Designer.cs">
+      <DependentUpon>VariableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FieldRendererControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Model\FunctionGraph.cs" />
+    <Compile Include="View\Renderers\PrimitiveRenderer.cs" />
+    <Compile Include="View\Renderers\Renderer.cs" />
+    <Compile Include="View\Renderers\RenderOptions\IRenderOptions.cs" />
+    <Compile Include="View\Renderers\RenderOptions\PointRenderOptions.cs" />
+    <Compile Include="View\Renderers\RenderOptions\LineRenderOptions.cs" />
+    <Compile Include="View\Renderers\RenderOptions\PolygonRenderOptions.cs" />
+    <Compile Include="View\Renderers\TextureRenderer.cs" />
+    <Compile Include="View\Texture2D.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\GraphEquationControl.resx">
+      <DependentUpon>GraphEquationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\GraphListControl.resx">
+      <DependentUpon>GraphListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\GraphOptionsForm.resx">
+      <DependentUpon>GraphOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\VariableControl.resx">
+      <DependentUpon>VariableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\FieldRendererControl.resx">
+      <DependentUpon>FieldRendererControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\texture.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
